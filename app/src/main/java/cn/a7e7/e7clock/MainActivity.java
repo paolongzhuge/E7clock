@@ -4,6 +4,7 @@ package cn.a7e7.e7clock;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
@@ -15,6 +16,7 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
 
     private TextView tvHour,tvMinutes;
+    private static int TIME_TEXT_SIEZ = 220;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +28,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         tvHour = findViewById(R.id.tvHous);
-        tvHour.setTextSize(250);
         tvMinutes = findViewById(R.id.tvMinutes);
-        tvMinutes.setTextSize(250);
 
+        //设置字体大小
+        tvHour.setTextSize(TIME_TEXT_SIEZ);
+        tvMinutes.setTextSize(TIME_TEXT_SIEZ);
 
         //屏幕常亮设置
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
+        //横屏设置
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+        //刷新设置
         timerHandler.sendEmptyMessage(0);
 
     }
@@ -44,9 +51,8 @@ public class MainActivity extends AppCompatActivity {
         //创建Calendar时就相当于获取了一个次系统时间，所以为了每次刷新的时候都能获取到最新的时间，所以创建的操作也要放在刷新里
         Calendar c = Calendar.getInstance();
         //HOUR_OF_DAY为设置为24小时制的小时
-        tvHour.setText(String.format("%d",c.get(Calendar.HOUR_OF_DAY)));
-        tvMinutes.setText(String.format("%d",c.get(Calendar.MINUTE)));
-
+        tvHour.setText(oneToTwo(c.get(Calendar.HOUR_OF_DAY)));
+        tvMinutes.setText(oneToTwo(c.get(Calendar.MINUTE)));
     }
 
     //尝试刷新显示时间的一系列方法
@@ -60,4 +66,15 @@ public class MainActivity extends AppCompatActivity {
             timerHandler.sendEmptyMessageDelayed(0,1000);
         }
     };
+
+    //时间显示两位数化
+    private String oneToTwo(int time){
+        String a = "1";
+        if (time < 10){
+            return "0" + String.valueOf(time);
+        }else {
+            return String.valueOf(time);
+        }
+    }
+
 }
