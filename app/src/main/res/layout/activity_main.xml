@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/tvHous"
+            android:layout_width="960px"
+            android:layout_height="match_parent" />
+
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/tvMinutes"
+            android:layout_width="960px"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+</LinearLayout>
