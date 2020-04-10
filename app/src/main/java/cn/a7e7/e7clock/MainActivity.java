@@ -15,8 +15,9 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView tvHour,tvMinutes;
+    private TextView tvHour,tvMinutes,tvNoun;
     private static int TIME_TEXT_SIEZ = 220;
+    private int noun = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +28,15 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+        //实例化
         tvHour = findViewById(R.id.tvHous);
         tvMinutes = findViewById(R.id.tvMinutes);
+        tvNoun = findViewById(R.id.tvNoun);
 
         //设置字体大小
         tvHour.setTextSize(TIME_TEXT_SIEZ);
         tvMinutes.setTextSize(TIME_TEXT_SIEZ);
+        tvNoun.setTextSize(150);
 
         //屏幕常亮设置
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -53,6 +57,14 @@ public class MainActivity extends AppCompatActivity {
         //HOUR_OF_DAY为设置为24小时制的小时
         tvHour.setText(oneToTwo(c.get(Calendar.HOUR_OF_DAY)));
         tvMinutes.setText(oneToTwo(c.get(Calendar.MINUTE)));
+
+        if (noun == 1){
+            tvNoun.setText("");
+            noun = 0;
+        }else {
+            tvNoun.setText(":");
+            noun = 1;
+        }
     }
 
     //尝试刷新显示时间的一系列方法

@@ -16,15 +16,21 @@
         <TextView
             android:gravity="center"
             android:id="@+id/tvHous"
-            android:layout_width="960px"
+            android:layout_width="800px"
             android:layout_height="match_parent"
             tools:ignore="PxUsage" />
 
+        <TextView
+            android:id="@+id/tvNoun"
+            android:gravity="center"
+            android:text=":"
+            android:layout_width="320px"
+            android:layout_height="match_parent" />
 
         <TextView
             android:gravity="center"
             android:id="@+id/tvMinutes"
-            android:layout_width="960px"
+            android:layout_width="800px"
             android:layout_height="match_parent"
             tools:ignore="PxUsage" />
     </LinearLayout>
