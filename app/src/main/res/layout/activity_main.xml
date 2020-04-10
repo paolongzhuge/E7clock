@@ -14,23 +14,29 @@
         tools:ignore="UselessParent">
 
         <TextView
+            android:includeFontPadding="false"
             android:gravity="center"
             android:id="@+id/tvHous"
-            android:layout_width="800px"
+            android:layout_width="0dp"
+            android:layout_weight="5"
             android:layout_height="match_parent"
             tools:ignore="PxUsage" />
 
         <TextView
+            android:includeFontPadding="false"
             android:id="@+id/tvNoun"
             android:gravity="center"
             android:text=":"
-            android:layout_width="320px"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent" />
 
         <TextView
+            android:includeFontPadding="false"
             android:gravity="center"
             android:id="@+id/tvMinutes"
-            android:layout_width="800px"
+            android:layout_weight="5"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             tools:ignore="PxUsage" />
     </LinearLayout>

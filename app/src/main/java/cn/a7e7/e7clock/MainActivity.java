@@ -2,9 +2,11 @@ package cn.a7e7.e7clock;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView tvHour,tvMinutes,tvNoun;
     private static int TIME_TEXT_SIEZ = 220;
+    private  static int NOUN_TEXT_SIES = 150;
     private int noun = 1;
 
     @Override
@@ -36,7 +39,14 @@ public class MainActivity extends AppCompatActivity {
         //设置字体大小
         tvHour.setTextSize(TIME_TEXT_SIEZ);
         tvMinutes.setTextSize(TIME_TEXT_SIEZ);
-        tvNoun.setTextSize(150);
+        tvNoun.setTextSize(NOUN_TEXT_SIES);
+
+        //设置字体为思源宋体
+        Typeface typeface = ResourcesCompat.getFont(this,R.font.s);
+        tvHour.setTypeface(typeface);
+        tvMinutes.setTypeface(typeface);
+        tvNoun.setTypeface(typeface);
+
 
         //屏幕常亮设置
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
